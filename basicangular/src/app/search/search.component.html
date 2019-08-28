@@ -1,0 +1,32 @@
+<form (ngSubmit)=onSubmit(f) #f="ngForm">
+<table>
+<tr><td>Enter phone number:</td><td>
+<input type="text" name="phone" ngModel /> </td></tr>
+<tr><td></td><td><button type="submit">Search</button></td></tr>
+
+</table>
+</form>
+
+<p *ngIf='!status else display'> </p>
+
+
+<ng-template #display>
+    
+    <table class="table">
+<p *ngFor="let data of mydata">
+        <tr> <td></td> <td><input type="hidden" name="name" [(ngModel)]=data._id></td></tr> 
+        <tr> <td> NAME </td> <td><input type="text" name="name" [(ngModel)]=data.name></td></tr> 
+        <tr> <td> Message </td> <td><input type="text" name="message" [(ngModel)]=data.message> </td></tr> 
+        <tr> <td> MAIL ID </td> <td><input type="text" name="mailid" [(ngModel)]=data.mailid></td></tr> 
+        <tr> <td> PHONE </td> <td> <input type="text" name="phone" [(ngModel)]=data.phone></td></tr> 
+        <tr><td></td><td><button type="submit" (click)="editFunction()">Edit</button></td></tr>
+        <tr><td></td><td><button type="submit" (click)="deleteFunction()">Delete</button></td></tr>
+  
+  
+</p>
+
+    </table>
+
+
+</ng-template>
+
